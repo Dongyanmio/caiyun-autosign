@@ -383,14 +383,14 @@ class CaiYunService:
     
     def _init_configs(self):
         self.upload_config = UploadConfig(
-            enabled=bool(config.get('upload.enable', False)),
-            directory_id=str(config.get('caiyun.upload_dirid', '')),
-            filename=str(config.get('upload.filename', '7'))
+            enabled=bool(config.get('UPLOAD', False)),
+            directory_id=str(config.get('DIR_ID', '')),
+            filename=str(config.get('UPLOAD_FILENAME', '7'))
         )
         
         self.share_config = ShareConfig(
-            enabled=bool(config.get('share.enable', False)),
-            filename=str(config.get('share.filename', ''))
+            enabled=bool(config.get('SHARE', False)),
+            filename=str(config.get('SHARE_FILENAME', ''))
         )
     
     def _init_tasks(self):
@@ -412,18 +412,18 @@ class CaiYunService:
 
 def job():
     auth_service = AuthService(
-        auth_token=str(config.get('caiyun.token')),
-        account=str(config.get('caiyun.phone'))
+        auth_token=str(config.get('ACCOUNT_AUTH')),
+        account=str(config.get('ACCOUNT_PHONE'))
     )
     upload_config = UploadConfig(
-        enabled=bool(config.get('upload.enable', False)),
-        directory_id=str(config.get('caiyun.upload_dirid', '')),
+        enabled=bool(config.get('UPLOAD', False)),
+        directory_id=str(config.get('DIR_ID', '')),
         filename='7'
     )
     
     share_config = ShareConfig(
-        enabled=bool(config.get('share.enable', False)),
-        filename=str(config.get('share.filename', ''))
+        enabled=bool(config.get('SHARE', False)),
+        filename=str(config.get('SHARE_FILENAME', ''))
     )
     scheduler = TaskScheduler()
     logger.info("获取jwtToken")
