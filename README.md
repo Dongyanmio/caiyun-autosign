@@ -27,18 +27,26 @@ pip install -r requirements.txt
     在上一步的文件夹中任意上传一个文件并记下文件名。
 
 ### 4. 修改配置
-复制 `config.example.yaml` 并重命名为 `config.yaml`，按照以下格式修改配置：
-```yaml
-139yun:
-  token: "你的 Authorization"
-  phone: "手机号"
-  upload_dirid: "文件夹的 目录ID"
-  AccountType: 1 #账号类型 1=新个人云 0=个人云 可参考Alist文档进行判断
-share:
-  enable: true #是否开启完成分享文件任务功能
-  filename: "用来分享的文件名"
-upload:
-  enable: false #是否开启完成上传任务功能
+将 `.env.example` 重命名为 `.env`，按照以下格式修改配置：
+```
+# 移动云盘绑定的手机号
+ACCOUNT_PHONE=
+# 移动云盘 Authorization，可参考 OpenList / AList 文档抓包获取
+ACCOUNT_AUTH=
+
+# 上传、分享文件时文件夹的 ID
+DIR_ID=
+# 是否开启分享功能
+SHARE=false
+# 分享的文件名，需放在 ID 为 DIR_ID 的目录下
+SHARE_FILENAME=
+# 是否开启上传功能
+UPLOAD=false
+# 上传的文件名，需放在 ID 为 DIR_ID 的目录下
+UPLOAD_FILENAME=
+
+# 是否开启自动签到（暂时无用）
+AUTO_SIGN=false
 ```
 
 ### 5. 执行脚本
