@@ -1,3 +1,6 @@
+# 不推荐在 Github Actions 上运行此脚本
+# 由于 Github Actions 服务器位于海外，可能导致账号风控等问题
+# 推荐使用国内的 CI/CD 服务或本地/自有服务器运行
 name: 自动签到
 
 on:
